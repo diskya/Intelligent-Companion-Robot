@@ -1,0 +1,196 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Wall.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/apartment_structure/protos/Window.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/PaintedWood.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/lights/protos/CeilingLight.proto"
+EXTERNPROTO "../protos/Pedestrian.proto"
+
+WorldInfo {
+  info [
+    "Sample of how the indoor objects can be placed"
+  ]
+  basicTimeStep 16
+}
+Viewpoint {
+  orientation -0.23512229291451756 -0.2695269662428389 0.9338483398510443 4.7804698216204
+  position -6.667963135114099 9.207561364274778 10.027053464288267
+  exposure 0.5
+}
+TexturedBackground {
+  texture "empty_office"
+  skybox FALSE
+  skyColor [
+    0.2 0.2 0.2
+  ]
+}
+DEF FLOOR Solid {
+  translation -4.95 -3.3 0
+  children [
+    Shape {
+      appearance Parquetry {
+        textureTransform TextureTransform {
+          scale 6 9
+        }
+      }
+      geometry DEF FLOOR_PLANE Plane {
+        size 9.9 6.6
+      }
+    }
+  ]
+  name "floor"
+  boundingObject USE FLOOR_PLANE
+  locked TRUE
+}
+DEF ROOF Solid {
+  translation -4.95 -3.3 2.3999
+  rotation 1 0 0 3.14159
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColor 0.8 0.8 0.8
+        baseColorMap ImageTexture {
+          url [
+            "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/default/worlds/textures/roughcast.jpg"
+          ]
+        }
+        roughness 0.5
+        metalness 0
+        textureTransform TextureTransform {
+          scale 8 8
+        }
+      }
+      geometry USE FLOOR_PLANE
+    }
+  ]
+  name "roof"
+  boundingObject USE FLOOR_PLANE
+  locked TRUE
+}
+Wall {
+  translation 0 -0.65 0
+  name "wall 1"
+  size 0.3 1 2.4
+}
+Window {
+  translation 0 -1.65 0
+  name "window 1"
+  size 0.3 1 2.4
+  frameAppearance PaintedWood {
+    colorOverride 0.13333333333333333 0.13333333333333333 0.13333333333333333
+  }
+}
+Wall {
+  translation 0 -4.3 0
+  name "wall 2"
+  size 0.3 4.3 2.4
+}
+Wall {
+  translation -9.9 -2.3 0
+  name "wall 3"
+  size 0.3 4.3 2.4
+}
+Wall {
+  translation -9.9 -5.95 0
+  name "wall 4"
+  size 0.3 1 2.4
+}
+Wall {
+  translation -3.8 0 0
+  rotation 0 0 1 1.5708
+  name "wall 5"
+  size 0.3 7.9 2.4
+}
+Wall {
+  translation -9.4 0 0
+  rotation 0 0 1 1.5708
+  name "wall 6"
+  size 0.3 1.3 2.4
+}
+Window {
+  translation -8.25 0 0
+  rotation 0 0 1 1.5708
+  name "window 2"
+  size 0.3 1 2.4
+  frameAppearance PaintedWood {
+    colorOverride 0.13333333333333333 0.13333333333333333 0.13333333333333333
+  }
+}
+Wall {
+  translation -9.4 -6.6 0
+  rotation 0 0 1 1.5708
+  name "wall 7"
+  size 0.3 1.3 2.4
+}
+Wall {
+  translation -3.8 -6.6 0
+  rotation 0 0 1 1.5708
+  name "wall 8"
+  size 0.3 7.9 2.4
+}
+Wall {
+  translation -3.3 -1.8 0
+  name "wall 9"
+  size 0.3 3.3 2.4
+}
+CeilingLight {
+  translation -1.3341 -2.4706 2.4
+  name "ceiling light 1"
+  pointLightIntensity 5
+}
+CeilingLight {
+  translation -7.1011 -2.4432 2.4
+  name "ceiling light 2"
+  pointLightIntensity 8
+}
+Pedestrian {
+  hidden translation_2 0.11265560126118257 5.551115123125783e-17 0.04455034039483702
+  hidden rotation_2 0 -1 0 0.6480000000000086
+  hidden translation_3 -0.011267221061438244 5.551115123125783e-17 0.004204179389598925
+  hidden rotation_3 0 -1 0 0.12218181818182812
+  hidden translation_4 0.01851542146477962 0 -0.0022213985759271804
+  hidden rotation_4 0 1 0 0.05018181818181144
+  hidden translation_5 -0.11301522847720069 5.551115123125783e-17 0.03003793355363854
+  hidden rotation_5 0 1 0 0.6247272727272796
+  hidden translation_6 -0.03994209207370034 0 0.00848856099401632
+  hidden rotation_6 0 -0.9999999999999999 0 0.4176363636363599
+  hidden translation_7 0.042720756479344285 0 -0.006565708810686799
+  hidden rotation_7 0 0.9999999999999999 0 0.11636363636364302
+  hidden translation_8 0.0008180320436800143 2.7755575615628914e-17 -0.00011020647564369268
+  hidden rotation_8 0 1 0 0.0027272727273841444
+  hidden translation_9 0.5028394398188195 2.7755575615628914e-17 -0.2172457910125739
+  hidden rotation_9 0 1 0 0.7367272727272278
+  hidden translation_10 -0.013350289079175265 0 0.000977368121727773
+  hidden rotation_10 0 -1 0 0.011454545454541318
+  hidden translation_11 -0.18745939771265377 -2.7755575615628914e-17 -0.03569766170875183
+  hidden rotation_11 0 -1 0 0.6414545454545513
+  hidden translation_12 0.4457767006300475 -2.7755575615628914e-17 -0.1665890705947639
+  hidden rotation_12 0 1 0 0.6363636363636226
+  hidden translation_13 -0.2442449613682651 2.7755575615628914e-17 -0.006332458494682891
+  hidden rotation_13 0 -1 0 0.20945454545455902
+  hidden translation_14 -0.047015988961759916 0 0.004282654222263649
+  hidden rotation_14 0 1 0 0.12763636363636163
+  translation 18 16.888000000000005 6.195818181818181
+  rotation 0 0 1 -1.5707963267948966
+  name "Javi"
+  controller "pedestrian_high"
+  controllerArgs [
+    "--speed= 0.75"
+    "--trajectory= -7 -5, -4 -5"
+  ]
+  rightLegAngle -0.6414545454545509
+  rightLowerLegAngle 0.6363636363636226
+  rightFootAngle -0.20945454545455958
+  leftLegAngle 0.0027272727273100206
+  leftLowerLegAngle 0.7367272727272278
+  leftFootAngle -0.011454545454550952
+  rightArmAngle 0.6247272727272798
+  rightLowerArmAngle -0.4176363636363601
+  rightHandAngle 0.11636363636364422
+  leftArmAngle -0.6480000000000086
+  leftLowerArmAngle -0.12218181818182643
+  leftHandAngle 0.05018181818181347
+  headAngle 0.1276363636363601
+}

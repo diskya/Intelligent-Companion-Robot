@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<robot name="/home/disky/webots_projects/apartment/protos/CreateWall.urdf" xmlns:xacro="http://ros.org/wiki/xacro">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+      <geometry>
+        <box size="0.13 0.1 0.06"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.05" rpy="1.5708 0 0"/>
+      <geometry>
+        <box size="0.13 0.1 0.06"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="emitter">
+  </link>
+  <joint name="base_link_emitter_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="emitter"/>
+    <origin xyz="-0.029 0 0.103" rpy="0 0 0"/>
+  </joint>
+</robot>
